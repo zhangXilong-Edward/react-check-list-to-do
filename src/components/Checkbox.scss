@@ -1,0 +1,126 @@
+@import '../utilities/variables.scss';
+
+@keyframes completed {
+    from {
+        color: $lightTextColor;
+        text-decoration: none;
+    }
+
+    to {
+        color: $lightestTextColor;
+        text-decoration: line-through;
+    }
+}
+
+@keyframes added {
+    from {
+        position: relative;
+        top: 15px;
+    }
+
+    to {
+        position: relative;
+        top: 0
+    }
+}
+
+@keyframes collapseItem {
+    0% {
+        -ms-transform: perspective(500px) rotateX(0deg);
+        transform: perspective(500px) rotateX(0deg);
+    }
+
+    100% {
+        -ms-transform: perspective(500px) rotateX(-90deg);
+        transform: perspective(500px) rotateX(-90deg);
+    }
+}
+
+@-webkit-keyframes collapseItem {
+    0% {
+        -webkit-transform: perspective(500px) rotateX(0deg);
+    }
+
+    100% {
+        -webkit-transform: perspective(500px) rotateX(-90deg);
+    }
+}
+
+.checkbox {
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+    column-gap: 10px;
+    align-items: center;
+    background-color: $darkBgColor;
+    padding: 15px 5px;
+    width: 100%;
+    animation-name: added;
+    animation-duration: 0.4s;
+    color: $lightTextColor;
+    border-bottom: 1px solid #000000
+}
+
+.item {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    column-gap: 10px;
+}
+
+.checkbox.completed {
+    background-color: $darkBgColor;
+    color: $lightestTextColor;
+    text-decoration: line-through;
+    animation-name: add;
+    animation-direction: reverse;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+}
+
+.checkbox.deleted {
+    -webkit-animation: collapseItem 500ms ease;
+    animation: collapseItem 500ms ease;
+    -webkit-transform-origin: 50% 0%;
+    -ms-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+}
+
+.checkbox.removed {
+    display: none;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+    accent-color: $darkTextColor;
+}
+
+input[type="checkbox"]:hover {
+    color: $lightTextColor;
+}
+
+.remove-button {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs, 1));
+    width: 22px;
+    height: 22px;
+    border: 2px solid;
+    border-radius: 22px
+}
+
+.remove-button::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 5px;
+    top: 8px;
+    left: 4px
+}
+
+.remove-button:hover {
+    color: red
+}

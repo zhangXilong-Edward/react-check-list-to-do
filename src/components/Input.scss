@@ -1,0 +1,20 @@
+@import '../utilities/variables.scss';
+
+.user-input {
+    padding: 20px 10px;
+    font-family: $myFont;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $darkBgColor;
+}
+
+input{
+    -webkit-transition: all .2s linear;
+	   -moz-transition: all .2s linear;
+	     -o-transition: all .2s linear;
+		    transition: all .2s linear;	
+}
+
+::placeholder {
+    font-family: $myFont;
+}

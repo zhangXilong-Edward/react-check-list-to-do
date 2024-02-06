@@ -1,0 +1,12 @@
+@import "utilities/variables";
+
+body {
+  font-family: $myFont ;
+}
+
+* {
+  -webkit-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear;
+}
